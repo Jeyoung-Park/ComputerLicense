@@ -5,6 +5,10 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4307aaf9-55ed-419d-8bae-9dc41a27775e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +29,14 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -39,12 +51,22 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-10T13:15:44.778Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ARKQuiz/app" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/res/drawable-v24" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/res/font" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\font" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.computerlicense" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\font" />
+      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\drawable-v24" />
+      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\drawable" />
+      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\layout" />
     </key>
   </component>
   <component name="RunManager">
@@ -121,30 +143,46 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1594393566991">
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1594539619841">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594393566991" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1594539619841" />
+    <state x="540" y="275" key="AndroidCreateResourceDirectoryDialog" timestamp="1594547765546">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="275" key="AndroidCreateResourceDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594547765546" />
+    <state x="540" y="275" key="AndroidCreateResourceFileDialog" timestamp="1594547854568">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="540" y="275" key="AndroidCreateResourceFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594547854568" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1594547769075">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594547769075" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1594388355742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1594388355742" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1594393332820">
+    <state width="1877" height="238" key="GridCell.Tab.0.bottom" timestamp="1594547723191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594393332820" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1594393332820">
+    <state width="1877" height="238" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1594547723191" />
+    <state width="1877" height="238" key="GridCell.Tab.0.center" timestamp="1594547723191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594393332820" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1594393332820">
+    <state width="1877" height="238" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1594547723191" />
+    <state width="1877" height="238" key="GridCell.Tab.0.left" timestamp="1594547723191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594393332820" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1594393332820">
+    <state width="1877" height="238" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1594547723191" />
+    <state width="1877" height="238" key="GridCell.Tab.0.right" timestamp="1594547723191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594393332820" />
+    <state width="1877" height="238" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594547723191" />
+    <state x="754" y="297" key="chooseDestDirectoryDialog" timestamp="1594546936204">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="754" y="297" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594546936204" />
     <state x="623" y="225" key="search.everywhere.popup" timestamp="1594389594308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

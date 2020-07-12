@@ -44,11 +44,71 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public Cursor loadSQLiteDBCursor(){
+    public Cursor loadSQLiteDBCursor(boolean is1, boolean is2, boolean is3){
         SQLiteDatabase db=this.getReadableDatabase();
         db.beginTransaction();
+        String selectQuery="";
 
-        String selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+" ORDER BY RANDOM() LIMIT 1";
+        if(is1==true){
+            if(is2==true){
+                if(is3==true) selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+" ORDER BY RANDOM() LIMIT 1";
+                else selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" !=3 ORDER BY RANDOM() LIMIT 1";
+            }
+            else{
+                if(is3==true) selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" !=2 ORDER BY RANDOM() LIMIT 1";
+                else selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" =1 ORDER BY RANDOM() LIMIT 1";
+            }
+        }
+        else{
+            if(is2==true){
+                if(is3==true) selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" !=1 ORDER BY RANDOM() LIMIT 1";
+                else selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" =2 ORDER BY RANDOM() LIMIT 1";
+            }
+            else{
+                if(is3==true) selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" =3 ORDER BY RANDOM() LIMIT 1";
+                else selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+" ORDER BY RANDOM() LIMIT 1";
+            }
+        }
+
+        Cursor cursor=null;
+
+        try{
+            cursor=db.rawQuery(selectQuery, null);
+            db.setTransactionSuccessful();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            db.endTransaction();
+        }
+        return cursor;
+    }
+
+    public Cursor loadSQLiteDBCursor_liked(boolean is1, boolean is2, boolean is3){
+        SQLiteDatabase db=this.getReadableDatabase();
+        db.beginTransaction();
+        String selectQuery="";
+
+        if(is1==true){
+            if(is2==true){
+                if(is3==true) selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+" WHERE "+ISLIKE+" =1 ORDER BY RANDOM() LIMIT 1";
+                else selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" !=3 AND "+ISLIKE+" =1 ORDER BY RANDOM() LIMIT 1";
+            }
+            else{
+                if(is3==true) selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" !=2 AND "+ISLIKE+" =1 ORDER BY RANDOM() LIMIT 1";
+                else selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" =1 AND "+ISLIKE+" =1 ORDER BY RANDOM() LIMIT 1";
+            }
+        }
+        else{
+            if(is2==true){
+                if(is3==true) selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" !=1 AND "+ISLIKE+" =1 ORDER BY RANDOM() LIMIT 1";
+                else selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" =2 AND "+ISLIKE+" =1 ORDER BY RANDOM() LIMIT 1";
+            }
+            else{
+                if(is3==true) selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+ " WHERE "+INFO +" =3 AND "+ISLIKE+" =1 ORDER BY RANDOM() LIMIT 1";
+                else selectQuery="SELECT "+ID+", "+INFO+", "+CONTENT+", "+ISLIKE+" FROM "+TABLE_NAME+" WHERE "+ISLIKE+ " =1 ORDER BY RANDOM() LIMIT 1";
+            }
+        }
+
         Cursor cursor=null;
 
         try{
@@ -76,5 +136,12 @@ public class DBHelper extends SQLiteOpenHelper {
         insertContent(1, "플러그 앤 플레이: 한글 Windows에 하드웨어 장치를 추가할 때 운영체제가 이를 자동으로 인식하여 설치 및 환경설정을 용이하게 해주는 기능", 0);
         insertContent(1, "단축키 F3: 탐색기의 '검색 상자' 선택하기", 0);
         insertContent(1, "단축키 Alt+Esc: 실행 중인 프로그램 사이에 작업 전환을 한다.\n한 번씩 누를 떄마다 열려 있는 프로그램의 창이 바로 바뀐다.", 0);
+    }
+
+    public void updateLike(SQLiteDatabase db, int id, int islike){
+        ContentValues contentValues=new ContentValues();
+        if(islike==0) contentValues.put(ISLIKE, 1);
+        else if(islike==1) contentValues.put(ISLIKE, 0);
+        db.update(TABLE_NAME, contentValues, ID+"="+id, null);
     }
 }
