@@ -77,12 +77,14 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0, 0);
             }
         });
         ImageButton_before.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainActivity.super.onBackPressed();
+                overridePendingTransition(0, 0);
             }
         });
 
@@ -109,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
                 Intent intent=new Intent(MainActivity.this, LikedContentActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                overridePendingTransition(0, 0); //애니메이션 제거
             }
         });
 
