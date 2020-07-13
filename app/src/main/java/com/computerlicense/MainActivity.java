@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
         final Cursor cursor=dbHelper.loadSQLiteDBCursor(isChecked1, isChecked2, isChecked3);
         try{
             cursor.moveToFirst();
-            setContent(cursor.getInt(1), cursor.getString(2), cursor.getInt(3));
+            setContent(cursor.getInt(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4));
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -219,13 +219,13 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
         }
     }
 
-    public void setContent(int info, String content, int islike){
+    public void setContent(int info, String content, int islike, String keyword){
         String temp="";
         if(info==1) temp="1. 컴퓨터 일반";
         else if(info==2) temp="2. 스프레드시트 일반";
         else if(info==3) temp="3. 데이터베이스 일반";
         TextView_main_content_info.setText(temp);
-        TextView_main_content.setText(content);
+        TextView_main_content.setText(dbHelper.highlightKeyWord(content, keyword));
         if(islike==0) ImageButton_like.setImageResource(R.drawable.empty_star);
         else if(islike==1) ImageButton_like.setImageResource(R.drawable.full_star);
     }
