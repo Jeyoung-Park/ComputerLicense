@@ -139,7 +139,7 @@ public class DBHelper extends SQLiteOpenHelper {
         insertContent(1, "단축키 F3: 탐색기의 '검색 상자' 선택하기", 0, "F3");
         insertContent(1, "단축키 Alt+Esc: 실행 중인 프로그램 사이에 작업 전환을 한다.\n한 번씩 누를 떄마다 열려 있는 프로그램의 창이 바로 바뀐다.", 0, "Alt+Esc");
         insertContent(2, "현재 워크시트의 왼쪽에 새로운 시트를 삽입할 때에는 Shift+F11을 누른다.", 0, "Shift+F11");
-        insertContent(3, "데이터베이스 방식은 데이터의 중복을 최소화할 수 있다.", 0, "데이터베이스");
+        insertContent(3, "데이터베이스 방식은 데이터의 중복을 최소화할 수 있다.", 0, null);
     }
 
     public void updateLike(SQLiteDatabase db, int id, int islike){
@@ -150,9 +150,14 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public SpannableString highlightKeyWord(String content, String keyword){
-        SpannableString str = new SpannableString(content);
-        str.setSpan(new BackgroundColorSpan(Color.YELLOW), content.indexOf(keyword), content.indexOf(keyword)+keyword.length(), 0);
-        return str;
+        if(keyword==null){
+            return SpannableString.valueOf(content);
+        }
+        else{
+            SpannableString str = new SpannableString(content);
+            str.setSpan(new BackgroundColorSpan(Color.YELLOW), content.indexOf(keyword), content.indexOf(keyword)+keyword.length(), 0);
+            return str;
+        }
     }
 
 }

@@ -52,21 +52,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/res/drawable-v24" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/res/drawable-v24" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\drawable-v24" />
       <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\font" />
+      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\drawable" />
+      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\layout" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.computerlicense" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\font" />
-      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\drawable-v24" />
-      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\drawable" />
-      <recent name="C:\Users\user\MyGitHub\ComputerLicense\app\src\main\res\layout" />
     </key>
   </component>
   <component name="RunManager">
@@ -179,10 +179,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1594613379814" />
-    <state x="754" y="297" key="chooseDestDirectoryDialog" timestamp="1594546936204">
+    <state x="754" y="297" key="chooseDestDirectoryDialog" timestamp="1594619749876">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="754" y="297" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594546936204" />
+    <state x="754" y="297" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594619749876" />
+    <state x="1132" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1594688486724">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1132" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1594688486724" />
     <state x="623" y="225" key="search.everywhere.popup" timestamp="1594389594308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
