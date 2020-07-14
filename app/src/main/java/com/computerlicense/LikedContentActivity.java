@@ -67,6 +67,7 @@ public class LikedContentActivity extends AppCompatActivity implements OnBackPre
             public void onClick(View view) {
                 Intent intent=new Intent(LikedContentActivity.this, LikedContentActivity.class);
                 startActivity(intent);
+                overridePendingTransition(0, 0); //애니메이션 제거
             }
         });
         ImageButton_before.setOnClickListener(new View.OnClickListener() {
@@ -99,6 +100,7 @@ public class LikedContentActivity extends AppCompatActivity implements OnBackPre
                 Intent intent=new Intent(LikedContentActivity.this, MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+                overridePendingTransition(0, 0); //애니메이션 제거
             }
         });
 

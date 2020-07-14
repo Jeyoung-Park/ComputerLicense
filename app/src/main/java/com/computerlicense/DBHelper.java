@@ -123,6 +123,22 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getCountLikeCursor(){
+        SQLiteDatabase db=this.getReadableDatabase();
+        db.beginTransaction();
+        String countQuery="SELECT * FROM "+ TABLE_NAME+" WHERE ISLIKE=1";
+        Cursor cursor=null;
+        try{
+            cursor=db.rawQuery(countQuery, null);
+            db.setTransactionSuccessful();
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            db.endTransaction();
+        }
+        return cursor;
+    }
+
 //데이터베이스에 값 삽입
     public void insertContent(int info, String content, int islike, String keyword){
         ContentValues contentValues=new ContentValues();

@@ -66,11 +66,10 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
         try{
             cursor.moveToFirst();
             setContent(cursor.getInt(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4));
+            isLike=cursor.getInt(3);
         }catch(Exception e){
             e.printStackTrace();
         }
-
-        isLike=cursor.getInt(3);
 
         ImageButton_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
         ImageButton_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("button", "별 버튼이 클릭됨");
                 db=dbHelper.getWritableDatabase();
                 dbHelper.updateLike(db, cursor.getInt(0), isLike);
                 if(isLike==0) {
@@ -108,10 +106,15 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
         ImageButton_liked_content.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this, LikedContentActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-                overridePendingTransition(0, 0); //애니메이션 제거
+                Cursor cursor_like=dbHelper.getCountLikeCursor();
+                Log.d("좋아요 항목 개수: ", "cursor_like.getCount():"+cursor_like.getCount());
+                if(cursor_like.getCount()==0||cursor_like==null) Toast.makeText(MainActivity.this, "좋아요를 표시한 콘텐츠가 없습니다.", Toast.LENGTH_SHORT).show();
+                else{
+                    Intent intent=new Intent(MainActivity.this, LikedContentActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0); //애니메이션 제거
+                }
             }
         });
 
