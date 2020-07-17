@@ -55,12 +55,11 @@ public class LikedContentActivity extends AppCompatActivity implements OnBackPre
         final Cursor cursor=dbHelper.loadSQLiteDBCursor_liked(isChecked1, isChecked2, isChecked3);
         try{
             cursor.moveToFirst();
-            setContent(cursor.getInt(1), cursor.getString(2), cursor.getInt(3));
+            setContent(cursor.getInt(1), cursor.getString(2), cursor.getInt(3), cursor.getString(4));
+            isLike=cursor.getInt(3);
         }catch(Exception e){
             e.printStackTrace();
         }
-
-        isLike=cursor.getInt(3);
 
         ImageButton_next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +79,6 @@ public class LikedContentActivity extends AppCompatActivity implements OnBackPre
         ImageButton_like.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("button", "별 버튼이 클릭됨");
                 db=dbHelper.getWritableDatabase();
                 dbHelper.updateLike(db, cursor.getInt(0), isLike);
                 if(isLike==0) {
@@ -210,15 +208,24 @@ public class LikedContentActivity extends AppCompatActivity implements OnBackPre
             toast.cancel();
         }
     }
-
-    public void setContent(int info, String content, int islike){
+    public void setContent(int info, String content, int islike, String keyword){
         String temp="";
         if(info==1) temp="1. 컴퓨터 일반";
         else if(info==2) temp="2. 스프레드시트 일반";
         else if(info==3) temp="3. 데이터베이스 일반";
         TextView_main_content_info.setText(temp);
-        TextView_main_content.setText(content);
+        TextView_main_content.setText(dbHelper.highlightKeyWord(content, keyword));
         if(islike==0) ImageButton_like.setImageResource(R.drawable.empty_star);
         else if(islike==1) ImageButton_like.setImageResource(R.drawable.full_star);
     }
+//    public void setContent(int info, String content, int islike){
+//        String temp="";
+//        if(info==1) temp="1. 컴퓨터 일반";
+//        else if(info==2) temp="2. 스프레드시트 일반";
+//        else if(info==3) temp="3. 데이터베이스 일반";
+//        TextView_main_content_info.setText(temp);
+//        TextView_main_content.setText(content);
+//        if(islike==0) ImageButton_like.setImageResource(R.drawable.empty_star);
+//        else if(islike==1) ImageButton_like.setImageResource(R.drawable.full_star);
+//    }
 }

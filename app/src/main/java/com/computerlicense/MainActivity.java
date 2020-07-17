@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -57,10 +60,24 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
             dbHelper.loadContent(db);
         }
 
+      /*  try {
+            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_META_DATA);
+
+            String versionName = pInfo.versionName;
+            int versionCode = pInfo.versionCode;
+            Log.e("device_version", "device_version : " + pInfo.versionName + "   " + pInfo.versionCode);
+            if(versionCode==2&&sharedPreferences.getBoolean("isFirst", true)){
+//                최초 실행이 아니고 버전이 업데이트되었을 떄 표시
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }*/
+
         SharedPreferences sf=getSharedPreferences("subject", MODE_PRIVATE);
         boolean isChecked1 = sf.getBoolean("isChecked1", true);
         boolean isChecked2 = sf.getBoolean("isChecked2", true);
         boolean isChecked3 = sf.getBoolean("isChecked3", true);
+
 
         final Cursor cursor=dbHelper.loadSQLiteDBCursor(isChecked1, isChecked2, isChecked3);
         try{
@@ -107,7 +124,6 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
             @Override
             public void onClick(View view) {
                 Cursor cursor_like=dbHelper.getCountLikeCursor();
-                Log.d("좋아요 항목 개수: ", "cursor_like.getCount():"+cursor_like.getCount());
                 if(cursor_like.getCount()==0||cursor_like==null) Toast.makeText(MainActivity.this, "좋아요를 표시한 콘텐츠가 없습니다.", Toast.LENGTH_SHORT).show();
                 else{
                     Intent intent=new Intent(MainActivity.this, LikedContentActivity.class);
