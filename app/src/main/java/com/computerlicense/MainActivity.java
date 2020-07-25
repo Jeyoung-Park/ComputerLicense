@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 overridePendingTransition(0, 0);
             }
         });
@@ -236,7 +237,9 @@ public class MainActivity extends AppCompatActivity implements OnBackPressedList
             return;
         }
         if(System.currentTimeMillis() <= backKeyPressedTime + 2000){
-            finish();
+            finishAffinity();
+            System.runFinalization();
+            System.exit(0);
             toast.cancel();
         }
     }

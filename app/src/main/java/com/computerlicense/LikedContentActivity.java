@@ -204,7 +204,9 @@ public class LikedContentActivity extends AppCompatActivity implements OnBackPre
             return;
         }
         if(System.currentTimeMillis() <= backKeyPressedTime + 2000){
-            finish();
+            finishAffinity();
+            System.runFinalization();
+            System.exit(0);
             toast.cancel();
         }
     }
